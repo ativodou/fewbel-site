@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fèw Bèl — Natural Haitian beauty products developed under the guidance of Dr. Nadya Remy, dermatologist. Plant-based, botanical, made for you.">
+<meta property="og:title" content="Fèw Bèl — Natural Haitian Beauty">
+<meta property="og:description" content="Haitian botanical tradition meets clinical dermatology. Natural beauty products validated by Dr. Nadya Remy.">
+<meta property="og:image" content="https://fewbel.com/images/few-bel.png">
+<title>Fèw Bèl — Natural Haitian Beauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDF6F2;
+    --blush: #F5E8E2;
+    --blush-mid: #EDD5CB;
+    --ink: #2C1510;
+    --ink-mid: #4A2518;
+    --muted: #9B7060;
+    --violet: #7B3F8C;
+    --violet-light: #9D5CAE;
+    --violet-pale: #F2EAF5;
+    --rose: #C47E6E;
+    --rose-pale: rgba(196,126,110,0.1);
+    --rose-border: rgba(196,126,110,0.2);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(253,246,242,0.95); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--rose-border);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .nav-logo-img { height: 34px; object-fit: contain; opacity: 0.9; }
+  .nav-brand-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--violet); }
+  .nav-brand-name em { font-style: italic; color: var(--rose); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--violet); }
+  .nav-cta { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; padding: 0.55rem 1.5rem; background: var(--violet); color: white; text-decoration: none; transition: all 0.3s; border: 2px solid var(--violet); }
+  .nav-cta:hover { background: transparent; color: var(--violet); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 8rem 2rem 6rem; position: relative;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--blush) 60%, var(--blush-mid) 100%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(123,63,140,0.06) 0%, transparent 70%);
+    top: 10%; right: -100px; pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,126,110,0.08) 0%, transparent 70%);
+    bottom: 10%; left: -80px; pointer-events: none;
+  }
+  .hero-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.6em; color: var(--rose); margin-bottom: 2rem; position: relative; z-index: 1; }
+  .hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(3.5rem, 11vw, 9rem); line-height: 0.88; color: var(--ink); margin-bottom: 0.5rem; position: relative; z-index: 1; }
+  .hero-title em { font-style: italic; color: var(--violet); display: block; }
+  .hero-title .script { font-style: italic; color: var(--rose); }
+  .hero-rule { width: 60px; height: 2px; background: linear-gradient(90deg, var(--rose), var(--violet)); margin: 2.5rem auto; position: relative; z-index: 1; }
+  .hero-sub { font-style: italic; font-size: clamp(1rem, 1.8vw, 1.25rem); color: var(--ink-mid); max-width: 520px; line-height: 1.9; position: relative; z-index: 1; }
+  .hero-sub strong { font-style: normal; color: var(--violet); }
+  .hero-badges { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; position: relative; z-index: 1; }
+  .hero-badge { font-family: 'Bebas Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; padding: 0.4rem 1rem; border: 1px solid var(--rose-border); color: var(--muted); background: rgba(253,246,242,0.7); }
+
+  /* PRODUCTS */
+  .products-section { padding: 8rem 4rem; background: white; }
+  .products-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 5rem; }
+  .section-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.55em; color: var(--rose); display: block; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+  .section-title em { font-style: italic; color: var(--violet); }
+  .section-sub { font-style: italic; color: var(--muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .product-card {
+    background: var(--cream); border: 1px solid var(--rose-border);
+    padding: 2.5rem 2rem; display: flex; flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .product-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--violet));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
+  }
+  .product-card:hover { box-shadow: 0 12px 40px rgba(123,63,140,0.1); transform: translateY(-3px); }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.45em; color: var(--rose); opacity: 0.7; margin-bottom: 1.25rem; }
+  .product-name-kr { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 0.35rem; }
+  .product-name-en { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1.25rem; }
+  .product-desc { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.75; flex: 1; margin-bottom: 1.5rem; }
+  .product-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--rose-border); }
+  .product-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.1em; color: var(--violet); }
+  .product-natural { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--rose); font-family: 'Bebas Neue', sans-serif; opacity: 0.8; }
+
+  /* ABOUT */
+  .about-section { padding: 8rem 4rem; background: var(--blush); }
+  .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .about-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.55em; color: var(--violet); display: block; margin-bottom: 1rem; }
+  .about-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.1; }
+  .about-title em { font-style: italic; color: var(--violet); }
+  .about-body { font-size: 1rem; line-height: 1.9; color: var(--ink-mid); margin-bottom: 2rem; }
+  .about-quote { border-left: 2px solid var(--violet); padding-left: 1.5rem; }
+  .about-quote p { font-style: italic; font-size: 1.1rem; color: var(--ink); line-height: 1.75; }
+  .about-quote cite { display: block; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--violet); margin-top: 1rem; font-style: normal; font-family: 'Bebas Neue', sans-serif; }
+  .about-ingredients { display: flex; flex-direction: column; gap: 1rem; }
+  .ingredient-row { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.25rem; background: rgba(253,246,242,0.7); border: 1px solid var(--rose-border); }
+  .ingredient-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .ingredient-body {}
+  .ingredient-name { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; color: var(--violet); display: block; margin-bottom: 0.3rem; }
+  .ingredient-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; }
+
+  /* PROMISE */
+  .promise-section { padding: 5rem 4rem; background: var(--violet); text-align: center; }
+  .promise-inner { max-width: 800px; margin: 0 auto; }
+  .promise-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.5em; color: rgba(255,255,255,0.6); margin-bottom: 1rem; display: block; }
+  .promise-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: white; margin-bottom: 1rem; }
+  .promise-title em { font-style: italic; color: var(--blush-mid); }
+  .promise-list { display: flex; justify-content: center; gap: 3rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .promise-item { text-align: center; }
+  .promise-item-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.7); display: block; margin-top: 0.5rem; }
+  .promise-item-icon { font-size: 1.8rem; display: block; }
+
+  /* CTA */
+  .cta-section { padding: 7rem 4rem; text-align: center; background: white; position: relative; }
+  .cta-deco { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--rose), var(--violet), var(--rose)); }
+  .cta-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.5em; color: var(--rose); margin-bottom: 1.5rem; display: block; }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
+  .cta-title em { font-style: italic; color: var(--violet); }
+  .cta-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn-violet { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.25em; padding: 1.1rem 3rem; background: var(--violet); color: white; text-decoration: none; transition: all 0.3s; border: 2px solid var(--violet); }
+  .btn-violet:hover { background: transparent; color: var(--violet); }
+  .btn-rose { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.25em; padding: 1.1rem 3rem; border: 2px solid var(--rose-border); color: var(--muted); text-decoration: none; transition: all 0.3s; margin-left: 1rem; }
+  .btn-rose:hover { border-color: var(--rose); color: var(--rose); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--rose-border); padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--cream); }
+  .footer-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; }
+  .footer-brand em { font-style: italic; color: var(--violet); }
+  footer p { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0.5rem; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--violet); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--cream); border-bottom: 1px solid var(--rose-border); padding: 0.5rem 0; gap: 0; }
+    .nav-links.open a { display: block; padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--rose-border); }
+    .products-section { padding: 5rem 1.5rem; }
+    .products-grid { grid-template-columns: 1fr; }
+    .about-section { padding: 5rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .promise-section { padding: 4rem 1.5rem; }
+    .promise-list { gap: 2rem; }
+    .cta-section { padding: 5rem 1.5rem; }
+    .btn-rose { margin-left: 0; margin-top: 1rem; display: block; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="images/few-bel.png" alt="Fèw Bèl" class="nav-logo-img">
+    <span class="nav-brand-name">Fèw <em>Bèl</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="mailto:contact@fewbel.com" class="nav-cta">Shop Now</a>
+  <button class="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Fèw Bèl · Natural Haitian Beauty · Pembroke Pines, FL</div>
+  <h1 class="hero-title">
+    Fè w
+    <em>Bèl</em>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Natural, plant-based beauty rooted in Haitian botanical tradition. Every product validated by <strong>Dr. Nadya Remy</strong>, dermatologist — made for Haitian women, by Haitian heritage.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">100% Natural</span>
+    <span class="hero-badge">Dermatologist Validated</span>
+    <span class="hero-badge">Haitian Botanicals</span>
+    <span class="hero-badge">No Preservatives</span>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Natural Collection · Six Products</span>
+      <h2 class="section-title">Made to Make You <em>Beautiful</em></h2>
+      <p class="section-sub">Haitian botanical ingredients, dermatologist-approved formulas, and the beauty rituals of Haitian women — in every bottle.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="product-num">01 · Hair Care</span>
+        <div class="product-name-kr">Lwil Maskreti</div>
+        <div class="product-name-en">Haitian Black Castor Oil</div>
+        <p class="product-desc">The gold standard for hair growth, scalp nourishment, and edge care. Cold-pressed from Haitian castor beans — thicker, richer, more effective than regular castor oil.</p>
+        <div class="product-footer">
+          <span class="product-price">$24.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-num">02 · Skincare</span>
+        <div class="product-name-kr">Bè Karite</div>
+        <div class="product-name-en">Raw Shea Butter</div>
+        <p class="product-desc">Unrefined, raw shea butter for deep body moisturizing, eczema relief, and stretch mark prevention. Sourced and prepared using traditional Haitian methods.</p>
+        <div class="product-footer">
+          <span class="product-price">$19.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-num">03 · Skincare</span>
+        <div class="product-name-kr">Masque Bentonite</div>
+        <div class="product-name-en">Detox Clay Mask</div>
+        <p class="product-desc">Deep pore cleansing, detox, and oil control with bentonite clay enriched with Haitian tropical herbs. Leaves skin smooth, clear, and radiant.</p>
+        <div class="product-footer">
+          <span class="product-price">$22.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-num">04 · Multi-Use</span>
+        <div class="product-name-kr">Lwil Kokoye</div>
+        <div class="product-name-en">Virgin Coconut Oil</div>
+        <p class="product-desc">Cold-pressed virgin coconut oil — makeup remover, hair mask, body oil, and lip treatment in one. A Haitian household staple elevated to skincare standard.</p>
+        <div class="product-footer">
+          <span class="product-price">$18.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-num">05 · Body Care</span>
+        <div class="product-name-kr">Savon Natirèl</div>
+        <div class="product-name-en">Natural Bar Soap</div>
+        <p class="product-desc">Handcrafted natural bar soap with Haitian botanical extracts — coconut oil, moringa, and tropical herbs. Gentle, moisturizing, free of synthetic additives.</p>
+        <div class="product-footer">
+          <span class="product-price">$12.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-num">06 · Hair Care</span>
+        <div class="product-name-kr">Masque Chevè</div>
+        <div class="product-name-en">Deep Conditioning Hair Mask</div>
+        <p class="product-desc">An intensive deep conditioning treatment with black castor oil, shea butter, and tropical proteins. Restores moisture, reduces breakage, and defines curl pattern.</p>
+        <div class="product-footer">
+          <span class="product-price">$26.99</span>
+          <span class="product-natural">✿ Natural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <span class="about-eyebrow">Dr. Nadya Remy · Dermatologist</span>
+      <h2 class="about-title">Science Meets <em>Tradition</em></h2>
+      <p class="about-body">Fèw Bèl is the only Haitian beauty brand with a practicing dermatologist as its medical director. Dr. Nadya Remy validates every formulation — ensuring that Haitian botanical tradition meets clinical standards for safety and effectiveness.</p>
+      <div class="about-quote">
+        <p>"Haitian women have used these ingredients for generations. My role is to validate what already works — and make sure it works safely for every skin type and tone."</p>
+        <cite>— Dr. Nadya Remy, Dermatologist · Medical Director, Fèw Bèl</cite>
+      </div>
+    </div>
+    <div class="about-ingredients">
+      <div class="ingredient-row">
+        <span class="ingredient-icon">🌿</span>
+        <div class="ingredient-body">
+          <span class="ingredient-name">Haitian Black Castor Oil</span>
+          <p class="ingredient-desc">Roasted and pressed using traditional methods — darker, richer, and more potent than commercially produced castor oil.</p>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <span class="ingredient-icon">🥥</span>
+        <div class="ingredient-body">
+          <span class="ingredient-name">Cold-Pressed Coconut Oil</span>
+          <p class="ingredient-desc">Virgin, unrefined coconut oil with full lauric acid content preserved. Sourced from Caribbean coconut farms.</p>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <span class="ingredient-icon">🌺</span>
+        <div class="ingredient-body">
+          <span class="ingredient-name">Tropical Botanical Herbs</span>
+          <p class="ingredient-desc">Moringa, hibiscus, vetiver, and other Haitian herbs known for their skin and hair benefits — used in Haitian homes for centuries.</p>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <span class="ingredient-icon">✦</span>
+        <div class="ingredient-body">
+          <span class="ingredient-name">Raw Shea Butter</span>
+          <p class="ingredient-desc">Unrefined shea butter prepared in the traditional manner — retaining all vitamins, fatty acids, and healing compounds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise-section">
+  <div class="promise-inner">
+    <span class="promise-eyebrow">The Fèw Bèl Promise</span>
+    <h2 class="promise-title">Made <em>for You.</em> Made with Care.</h2>
+    <div class="promise-list">
+      <div class="promise-item">
+        <span class="promise-item-icon">🌿</span>
+        <span class="promise-item-label">100% Natural</span>
+      </div>
+      <div class="promise-item">
+        <span class="promise-item-icon">🔬</span>
+        <span class="promise-item-label">Derm Validated</span>
+      </div>
+      <div class="promise-item">
+        <span class="promise-item-icon">🇭🇹</span>
+        <span class="promise-item-label">Haitian Botanicals</span>
+      </div>
+      <div class="promise-item">
+        <span class="promise-item-icon">✗</span>
+        <span class="promise-item-label">No Preservatives</span>
+      </div>
+      <div class="promise-item">
+        <span class="promise-item-icon">🌍</span>
+        <span class="promise-item-label">Ships Worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="order">
+  <div class="cta-deco"></div>
+  <span class="cta-eyebrow">Ready to shop?</span>
+  <h2 class="cta-title">Start Your <em>Routine</em></h2>
+  <p class="cta-sub">Contact us to place an order, ask about bundles, or learn more about any product in our natural collection.</p>
+  <a href="mailto:contact@fewbel.com" class="btn-violet">Order via Email</a>
+  <a href="https://lavimiyo.com/store" class="btn-rose">All Three Brands</a>
+</section>
+
+<footer>
+  <div class="footer-brand">Fèw <em>Bèl</em></div>
+  <p>© 2025 LavimiyòLLC · Pembroke Pines, FL · contact@fewbel.com</p>
+</footer>
+
+<script>
+  document.querySelector('.nav-hamburger').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
