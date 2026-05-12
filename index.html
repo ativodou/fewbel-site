@@ -513,7 +513,7 @@ const PRODUCTS = [
   { id:6, name:'Tretman Pou Cheve', img:'tretma cheve.png', sub_ht:'Swen Pwofon Pou Cheve', sub_en:'Deep Hair Treatment Mask', price:26.99, badge:'new', symbol:'≋', desc_ht:'Masque swen pwofon pou cheve: rannovi cheve kraze, nouri tèt, bay byè ak briyans natirèl. Ideyal pou cheve kreyòl.', desc_en:'Deep conditioning hair mask: revives damaged hair, nourishes the scalp, restores moisture and natural shine. Ideal for textured hair.' },
 ];
 
-let cart = [], lang = 'ht';
+let cart = JSON.parse(localStorage.getItem('fewbel_cart')||'[]'), lang = 'ht';
 
 function t(k) { return (T[lang]||T.ht)[k] || k; }
 
@@ -591,6 +591,7 @@ function toggleCart() {
 }
 
 function updateCartUI() {
+  localStorage.setItem('fewbel_cart', JSON.stringify(cart));
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
   document.getElementById('cart-count').textContent = cart.reduce((s,i)=>s+i.qty,0);
   document.getElementById('cart-title-el').textContent = t('cart.title');
