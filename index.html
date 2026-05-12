@@ -76,8 +76,9 @@
   .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
   .product-card { background: #fff; border: 1px solid var(--blush-border); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.3s; border-radius: 2px; }
   .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(123,63,140,0.1); border-color: rgba(123,63,140,0.3); }
-  .product-img { height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; background: var(--blush); position: relative; }
-  .product-img-symbol { font-size: 3.5rem; color: var(--rose); opacity: 0.6; }
+  .product-img { height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: var(--blush); position: relative; overflow: hidden; }
+  .product-img-symbol { font-size: 2rem; color: var(--rose); opacity: 0.5; }
+  .product-img-glow { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.92; }
   .product-badge { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 2rem; }
   .badge-new { background: var(--violet); color: #fff; }
   .badge-hot { background: #C0392B; color: #fff; }
@@ -118,7 +119,7 @@
   .dr-visual { background: radial-gradient(ellipse at 40% 60%, #7B3F8C, #4A2518 60%, #2C1510); display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: hidden; padding-top: 3rem; }
   .dr-visual::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C47E6E' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23C47E6E' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='10' fill='none' stroke='%23C47E6E' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E"); }
   .dr-avatar-wrap { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
-  .dr-avatar-initials { width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--rose); background: linear-gradient(135deg, var(--violet) 0%, var(--rose) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; color: #fff; box-shadow: 0 0 0 8px rgba(196,126,110,0.12), 0 0 0 16px rgba(196,126,110,0.05); }
+  .dr-avatar-initials { width: 260px; height: 260px; border-radius: 50%; border: 4px solid var(--rose); object-fit: cover; object-position: center top; box-shadow: 0 0 0 8px rgba(196,126,110,0.12), 0 0 0 16px rgba(196,126,110,0.05); }
   .dr-badge-seal { position: absolute; bottom: -10px; right: -10px; width: 76px; height: 76px; background: var(--rose); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 3px solid var(--ink-mid); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
   .seal-icon { font-size: 1rem; }
   .seal-text { font-size: 0.38rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; line-height: 1.2; padding: 0 4px; }
@@ -234,7 +235,7 @@
     .story-text { padding: 2.5rem 1.25rem; }
     .dr-section { grid-template-columns: 1fr; }
     .dr-visual { min-height: 280px; padding: 1.5rem; align-items: center; }
-    .dr-avatar-initials { width: 180px; height: 180px; font-size: 3.5rem; }
+    .dr-avatar-initials { width: 200px; height: 200px; }
     .dr-content { padding: 2rem 1.25rem; }
     .dr-stats { gap: 1.25rem; flex-wrap: wrap; }
     .testimonial-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -357,7 +358,7 @@
 <div class="dr-section" id="dr">
   <div class="dr-visual">
     <div class="dr-avatar-wrap">
-      <div class="dr-avatar-initials">NR</div>
+      <img class="dr-avatar-initials" src="images/glow.png" alt="Dr. Nadya Remy">
       <div class="dr-badge-seal"><span class="seal-icon">🔬</span><span class="seal-text" data-i18n="dr.seal"></span></div>
       <div class="dr-ribbon" data-i18n="dr.ribbon"></div>
     </div>
@@ -533,7 +534,8 @@ function renderProducts() {
     const badgeLabel = p.badge ? `<div class="product-badge ${badgeMap[p.badge]||''}">${t('badge.'+p.badge)}</div>` : '';
     return `<div class="product-card">
       <div class="product-img">
-        <span class="product-img-symbol">${p.symbol}</span>
+        <img class="product-img-glow" src="images/glow.png" alt="Glow">
+        <span class="product-img-symbol" style="position:absolute;bottom:0.5rem;left:0.75rem;">${p.symbol}</span>
         ${badgeLabel}
       </div>
       <div class="product-body">
