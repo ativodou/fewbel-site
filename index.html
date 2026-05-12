@@ -60,7 +60,7 @@
   .hero-desc { font-size: 0.95rem; font-weight: 300; color: var(--ink-light); line-height: 1.85; margin-bottom: 2.5rem; max-width: 420px; }
   .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--rose); color: #fff; border: none; border-radius: 2rem; padding: 0.85rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; }
   .hero-cta:hover { background: var(--rose-light); transform: translateY(-2px); }
-  .hero-right { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); background: var(--blush); }
+  .hero-right { overflow: hidden; }
   .product-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; cursor: pointer; transition: background 0.25s; border: 1px solid rgba(196,126,110,0.12); }
   .product-tile:hover { background: rgba(123,63,140,0.06); }
   .tile-symbol { font-size: 2.5rem; color: var(--rose); opacity: 0.7; }
@@ -320,7 +320,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>
   </div>
-  <div class="hero-right" id="product-tiles"></div>
+  <div class="hero-right">
+    <img src="images/jaden%20few%20bel.png" alt="Jaden Fèw Bèl" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
 </section>
 
 <!-- PRODUCTS -->
@@ -500,12 +502,12 @@ const T = {
 };
 
 const PRODUCTS = [
-  { id:1, name:'Lwil Maskreti', sub_ht:'Lwil Botanik Pou Po ak Cheve', sub_en:'Botanical Oil for Skin & Hair', price:24.99, badge:'bs', symbol:'❋', desc_ht:'Lwil maskreti pou po: nouri cheve, pwoteje po ak eklesite tach. Rich an asid grasi esansyèl pou po ou.', desc_en:'Pure Haitian castor oil: nourishes hair, protects skin, and fades dark spots. Rich in essential fatty acids for your skin.' },
-  { id:2, name:'Bè Karite', sub_ht:'Bè Nouri Kò ak Figi', sub_en:'Body & Face Nourishing Butter', price:19.99, badge:'bs', symbol:'✿', desc_ht:'Bè karite natirèl ki nouri po ak pwofondè. Ideyal pou kote sèch, bra, jann pye, ak pou gwosès.', desc_en:'Natural shea butter that deeply nourishes skin. Ideal for dry areas, elbows, heels, and during pregnancy.' },
-  { id:3, name:'Masque Bentonite', sub_ht:'Masque Ajil Pou Figi', sub_en:'Clay Detox Face Mask', price:22.99, badge:'new', symbol:'◆', desc_ht:'Masque ajil bentonit ki netwaye po an pwofondè, retire impirete ak kontwole lwil ekstra. Pou tout kalite po.', desc_en:'Bentonite clay mask that deeply cleanses skin, removes impurities, and controls excess oil. For all skin types.' },
-  { id:4, name:'Lwil Kokoye', sub_ht:'Lwil Kokoye Natirèl', sub_en:'Pure Coconut Oil', price:18.99, badge:'', symbol:'◉', desc_ht:'Lwil kokoye vyèj ekstra ki ideyalman pou po, cheve ak kòm démaquillant natirèl. Yon sèl pwodwi, mil itilizasyon.', desc_en:'Extra virgin coconut oil ideal for skin, hair, and as a natural makeup remover. One product, a thousand uses.' },
-  { id:5, name:'Savon Natirèl', sub_ht:'Savon Botanik Ayisyen', sub_en:'Haitian Botanical Soap', price:12.99, badge:'', symbol:'✦', desc_ht:'Savon fèt a la men ak lwil botanik ayisyen. San sulfat, san paraben. Dousi po tout jou san sèchès.', desc_en:'Handcrafted soap with Haitian botanical oils. Sulfate-free, paraben-free. Softens skin daily without dryness.' },
-  { id:6, name:'Masque Chevè', sub_ht:'Swen Pwofon Pou Cheve', sub_en:'Deep Hair Treatment Mask', price:26.99, badge:'new', symbol:'≋', desc_ht:'Masque swen pwofon pou cheve: rannovi cheve kraze, nouri tèt, bay byè ak briyans natirèl. Ideyal pou cheve kreyòl.', desc_en:'Deep conditioning hair mask: revives damaged hair, nourishes the scalp, restores moisture and natural shine. Ideal for textured hair.' },
+  { id:1, name:'Lwil Maskreti', img:'lwil maskreti.png', sub_ht:'Lwil Botanik Pou Po ak Cheve', sub_en:'Botanical Oil for Skin & Hair', price:24.99, badge:'bs', symbol:'❋', desc_ht:'Lwil maskreti pou po: nouri cheve, pwoteje po ak eklesite tach. Rich an asid grasi esansyèl pou po ou.', desc_en:'Pure Haitian castor oil: nourishes hair, protects skin, and fades dark spots. Rich in essential fatty acids for your skin.' },
+  { id:2, name:'Bè Karite', img:'be karite.png', sub_ht:'Bè Nouri Kò ak Figi', sub_en:'Body & Face Nourishing Butter', price:19.99, badge:'bs', symbol:'✿', desc_ht:'Bè karite natirèl ki nouri po ak pwofondè. Ideyal pou kote sèch, bra, jann pye, ak pou gwosès.', desc_en:'Natural shea butter that deeply nourishes skin. Ideal for dry areas, elbows, heels, and during pregnancy.' },
+  { id:3, name:'Pat Ajil', img:'pat ail.png', sub_ht:'Masque Ajil Pou Figi', sub_en:'Clay Detox Face Mask', price:22.99, badge:'new', symbol:'◆', desc_ht:'Masque ajil bentonit ki netwaye po an pwofondè, retire impirete ak kontwole lwil ekstra. Pou tout kalite po.', desc_en:'Bentonite clay mask that deeply cleanses skin, removes impurities, and controls excess oil. For all skin types.' },
+  { id:4, name:'Lwil Kokoye', img:'lwil kokoye.png', sub_ht:'Lwil Kokoye Natirèl', sub_en:'Pure Coconut Oil', price:18.99, badge:'', symbol:'◉', desc_ht:'Lwil kokoye vyèj ekstra ki ideyalman pou po, cheve ak kòm démaquillant natirèl. Yon sèl pwodwi, mil itilizasyon.', desc_en:'Extra virgin coconut oil ideal for skin, hair, and as a natural makeup remover. One product, a thousand uses.' },
+  { id:5, name:'Savon Natirèl', img:'savon.png', sub_ht:'Savon Botanik Ayisyen', sub_en:'Haitian Botanical Soap', price:12.99, badge:'', symbol:'✦', desc_ht:'Savon fèt a la men ak lwil botanik ayisyen. San sulfat, san paraben. Dousi po tout jou san sèchès.', desc_en:'Handcrafted soap with Haitian botanical oils. Sulfate-free, paraben-free. Softens skin daily without dryness.' },
+  { id:6, name:'Tretman Pou Cheve', img:'tretma cheve.png', sub_ht:'Swen Pwofon Pou Cheve', sub_en:'Deep Hair Treatment Mask', price:26.99, badge:'new', symbol:'≋', desc_ht:'Masque swen pwofon pou cheve: rannovi cheve kraze, nouri tèt, bay byè ak briyans natirèl. Ideyal pou cheve kreyòl.', desc_en:'Deep conditioning hair mask: revives damaged hair, nourishes the scalp, restores moisture and natural shine. Ideal for textured hair.' },
 ];
 
 let cart = [], lang = 'ht';
@@ -533,9 +535,11 @@ function renderProducts() {
     const badgeMap = {'new':'badge-new','hot':'badge-hot','bs':'badge-bs'};
     const badgeLabel = p.badge ? `<div class="product-badge ${badgeMap[p.badge]||''}">${t('badge.'+p.badge)}</div>` : '';
     return `<div class="product-card">
-      <div class="product-img">
-        <img class="product-img-glow" src="images/glow.png" alt="Glow">
-        <span class="product-img-symbol" style="position:absolute;bottom:0.5rem;left:0.75rem;">${p.symbol}</span>
+      <div class="product-img" style="${p.img?'background:#fdf6f0;':''}">
+        ${p.img
+          ? `<img src="images/${p.img.replace(/ /g,'%20')}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;">`
+          : `<img class="product-img-glow" src="images/glow.png" alt="Glow"><span class="product-img-symbol" style="position:absolute;bottom:0.5rem;left:0.75rem;">${p.symbol}</span>`
+        }
         ${badgeLabel}
       </div>
       <div class="product-body">
@@ -557,7 +561,6 @@ function renderProducts() {
   const tiles = document.getElementById('product-tiles');
   if (tiles) tiles.innerHTML = PRODUCTS.map(p => `
     <div class="product-tile" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-      <span class="tile-symbol">${p.symbol}</span>
       <span class="tile-name">${p.name}</span>
       <span class="tile-sub">${lang==='ht'?p.sub_ht:p.sub_en}</span>
     </div>`).join('');
