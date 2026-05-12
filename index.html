@@ -3,377 +3,635 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Fèw Bèl — Natural Haitian beauty products developed under the guidance of Dr. Nadya Remy, dermatologist. Plant-based, botanical, made for you.">
+<meta name="description" content="Fèw Bèl — Pwodwi Bote Natirèl Ayisyen / Natural Haitian Beauty Products — Formulated under the guidance of Dr. Nadya Remy, Dermatologist.">
 <meta property="og:title" content="Fèw Bèl — Natural Haitian Beauty">
 <meta property="og:description" content="Haitian botanical tradition meets clinical dermatology. Natural beauty products validated by Dr. Nadya Remy.">
-<meta property="og:image" content="https://fewbel.com/images/few-bel.png">
-<title>Fèw Bèl — Natural Haitian Beauty</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<meta property="og:image" content="images/few-bel.png">
+<title>Fèw Bèl — Bote Natirèl Ayisyen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #FDF6F2;
-    --blush: #F5E8E2;
-    --blush-mid: #EDD5CB;
-    --ink: #2C1510;
-    --ink-mid: #4A2518;
-    --muted: #9B7060;
-    --violet: #7B3F8C;
-    --violet-light: #9D5CAE;
-    --violet-pale: #F2EAF5;
-    --rose: #C47E6E;
-    --rose-pale: rgba(196,126,110,0.1);
-    --rose-border: rgba(196,126,110,0.2);
-  }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--cream); color: var(--ink); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between;
-    background: rgba(253,246,242,0.95); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--rose-border);
+  :root {
+    --cream: #FDF6F2; --blush: #F5E8E2; --blush-mid: #EDD5CB; --blush-border: rgba(196,126,110,0.18);
+    --ink: #2C1510; --ink-mid: #4A2518; --ink-light: #6B3828;
+    --violet: #7B3F8C; --violet-light: #9D5CAE; --violet-pale: rgba(123,63,140,0.08); --violet-border: rgba(123,63,140,0.2);
+    --rose: #C47E6E; --rose-light: #D9998C; --rose-pale: rgba(196,126,110,0.08); --rose-border: rgba(196,126,110,0.2);
+    --muted: #9B7060;
   }
-  .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .nav-logo-img { height: 34px; object-fit: contain; opacity: 0.9; }
-  .nav-brand-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--violet); }
-  .nav-brand-name em { font-style: italic; color: var(--rose); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--violet); }
-  .nav-cta { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; padding: 0.55rem 1.5rem; background: var(--violet); color: white; text-decoration: none; transition: all 0.3s; border: 2px solid var(--violet); }
-  .nav-cta:hover { background: transparent; color: var(--violet); }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+
+  /* TOP BAR */
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 110; height: 34px; background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; }
+  .topbar-tagline { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,246,242,0.45); }
+  .lang-toggle { display: flex; align-items: center; background: rgba(196,126,110,0.15); border-radius: 2rem; border: 1px solid var(--rose-border); overflow: hidden; }
+  .lang-btn { padding: 0.25rem 0.8rem; cursor: pointer; border: none; background: none; color: rgba(253,246,242,0.45); font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
+  .lang-btn.active { background: var(--rose); color: #fff; border-radius: 2rem; }
+
+  /* HEADER */
+  header { position: fixed; top: 34px; left: 0; right: 0; z-index: 100; height: 110px; background: #fff; border-bottom: 2px solid var(--rose); display: grid; grid-template-columns: 160px 1fr 280px; box-shadow: 0 2px 20px rgba(44,21,16,0.06); }
+  .header-logo-slot { display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .header-logo-img { height: 72px; object-fit: contain; }
+  .header-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; }
+  .header-site-name { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1; color: var(--ink); letter-spacing: 0.03em; }
+  .header-site-name span { color: var(--violet); font-style: italic; }
+  .header-nav-links { display: flex; gap: 2rem; list-style: none; }
+  .header-nav-links a { text-decoration: none; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+  .header-nav-links a:hover { color: var(--violet); }
+  .header-actions { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.85rem; padding: 1rem 2rem; }
+  .cart-btn { background: var(--rose); color: #fff; border: none; border-radius: 2rem; padding: 0.6rem 1.5rem; font-family: 'Jost', sans-serif; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; display: flex; align-items: center; gap: 0.5rem; }
+  .cart-btn:hover { background: var(--rose-light); transform: translateY(-1px); }
+  .cart-count { background: var(--ink); color: var(--cream); border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .header-spacer { height: 144px; }
+
+  /* STRIP */
+  .strip { background: var(--violet); padding: 0.5rem 0; overflow: hidden; white-space: nowrap; }
+  .strip-inner { display: inline-block; animation: marquee 30s linear infinite; }
+  .strip-inner span { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.85); padding: 0 2rem; }
 
   /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 8rem 2rem 6rem; position: relative;
-    background: linear-gradient(160deg, var(--cream) 0%, var(--blush) 60%, var(--blush-mid) 100%);
-    overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(123,63,140,0.06) 0%, transparent 70%);
-    top: 10%; right: -100px; pointer-events: none;
-  }
-  .hero::after {
-    content: ''; position: absolute;
-    width: 400px; height: 400px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(196,126,110,0.08) 0%, transparent 70%);
-    bottom: 10%; left: -80px; pointer-events: none;
-  }
-  .hero-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.6em; color: var(--rose); margin-bottom: 2rem; position: relative; z-index: 1; }
-  .hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(3.5rem, 11vw, 9rem); line-height: 0.88; color: var(--ink); margin-bottom: 0.5rem; position: relative; z-index: 1; }
-  .hero-title em { font-style: italic; color: var(--violet); display: block; }
-  .hero-title .script { font-style: italic; color: var(--rose); }
-  .hero-rule { width: 60px; height: 2px; background: linear-gradient(90deg, var(--rose), var(--violet)); margin: 2.5rem auto; position: relative; z-index: 1; }
-  .hero-sub { font-style: italic; font-size: clamp(1rem, 1.8vw, 1.25rem); color: var(--ink-mid); max-width: 520px; line-height: 1.9; position: relative; z-index: 1; }
-  .hero-sub strong { font-style: normal; color: var(--violet); }
-  .hero-badges { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; position: relative; z-index: 1; }
-  .hero-badge { font-family: 'Bebas Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; padding: 0.4rem 1rem; border: 1px solid var(--rose-border); color: var(--muted); background: rgba(253,246,242,0.7); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem; background: radial-gradient(ellipse at 30% 50%, rgba(123,63,140,0.05) 0%, transparent 70%); }
+  .hero-kicker { font-size: 0.65rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--violet); margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 900; line-height: 0.95; color: var(--ink); margin-bottom: 1.5rem; }
+  .hero-title em { font-style: italic; color: var(--rose); display: block; }
+  .hero-desc { font-size: 0.95rem; font-weight: 300; color: var(--ink-light); line-height: 1.85; margin-bottom: 2.5rem; max-width: 420px; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--rose); color: #fff; border: none; border-radius: 2rem; padding: 0.85rem 2rem; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .hero-cta:hover { background: var(--rose-light); transform: translateY(-2px); }
+  .hero-right { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); background: var(--blush); }
+  .product-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; cursor: pointer; transition: background 0.25s; border: 1px solid rgba(196,126,110,0.12); }
+  .product-tile:hover { background: rgba(123,63,140,0.06); }
+  .tile-symbol { font-size: 2.5rem; color: var(--rose); opacity: 0.7; }
+  .tile-name { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); text-align: center; }
+  .tile-sub { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: center; }
 
   /* PRODUCTS */
-  .products-section { padding: 8rem 4rem; background: white; }
-  .products-inner { max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 5rem; }
-  .section-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.55em; color: var(--rose); display: block; margin-bottom: 1rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
-  .section-title em { font-style: italic; color: var(--violet); }
-  .section-sub { font-style: italic; color: var(--muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto; line-height: 1.7; }
-  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .product-card {
-    background: var(--cream); border: 1px solid var(--rose-border);
-    padding: 2.5rem 2rem; display: flex; flex-direction: column;
-    transition: box-shadow 0.3s, transform 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .product-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--rose), var(--violet));
-    transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
-  }
-  .product-card:hover { box-shadow: 0 12px 40px rgba(123,63,140,0.1); transform: translateY(-3px); }
-  .product-card:hover::before { transform: scaleX(1); }
-  .product-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.45em; color: var(--rose); opacity: 0.7; margin-bottom: 1.25rem; }
-  .product-name-kr { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 0.35rem; }
-  .product-name-en { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1.25rem; }
-  .product-desc { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.75; flex: 1; margin-bottom: 1.5rem; }
-  .product-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--rose-border); }
-  .product-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.1em; color: var(--violet); }
-  .product-natural { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--rose); font-family: 'Bebas Neue', sans-serif; opacity: 0.8; }
+  section { padding: 5rem; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3rem; border-bottom: 1px solid var(--rose-border); padding-bottom: 1.5rem; }
+  .section-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1; }
+  .section-head h2 .accent { color: var(--violet); font-style: italic; }
+  .section-kicker { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .product-card { background: #fff; border: 1px solid var(--blush-border); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.3s; border-radius: 2px; }
+  .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(123,63,140,0.1); border-color: rgba(123,63,140,0.3); }
+  .product-img { height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; background: var(--blush); position: relative; }
+  .product-img-symbol { font-size: 3.5rem; color: var(--rose); opacity: 0.6; }
+  .product-badge { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 2rem; }
+  .badge-new { background: var(--violet); color: #fff; }
+  .badge-hot { background: #C0392B; color: #fff; }
+  .badge-bs { background: rgba(123,63,140,0.12); color: var(--violet); border: 1px solid var(--violet-border); }
+  .product-body { padding: 1.25rem; }
+  .product-brand-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .product-brand-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--violet); opacity: 0.7; font-weight: 600; }
+  .product-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.1; }
+  .product-sub { font-size: 0.78rem; font-weight: 300; color: var(--muted); margin-bottom: 0.6rem; font-style: italic; }
+  .product-desc { font-size: 0.8rem; color: var(--ink-light); line-height: 1.65; margin-bottom: 0.75rem; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--blush-border); padding-top: 1rem; }
+  .product-price { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--rose); }
+  .product-price small { font-size: 0.8rem; color: var(--muted); font-weight: 300; font-family: 'Jost', sans-serif; }
+  .add-btn { background: var(--rose); color: #fff; border: none; border-radius: 2rem; padding: 0.5rem 1.2rem; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.18s, transform 0.15s; }
+  .add-btn:hover { background: var(--rose-light); transform: scale(1.04); }
+  .add-btn.added { background: var(--violet); }
 
-  /* ABOUT */
-  .about-section { padding: 8rem 4rem; background: var(--blush); }
-  .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-  .about-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.55em; color: var(--violet); display: block; margin-bottom: 1rem; }
-  .about-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.1; }
-  .about-title em { font-style: italic; color: var(--violet); }
-  .about-body { font-size: 1rem; line-height: 1.9; color: var(--ink-mid); margin-bottom: 2rem; }
-  .about-quote { border-left: 2px solid var(--violet); padding-left: 1.5rem; }
-  .about-quote p { font-style: italic; font-size: 1.1rem; color: var(--ink); line-height: 1.75; }
-  .about-quote cite { display: block; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--violet); margin-top: 1rem; font-style: normal; font-family: 'Bebas Neue', sans-serif; }
-  .about-ingredients { display: flex; flex-direction: column; gap: 1rem; }
-  .ingredient-row { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.25rem; background: rgba(253,246,242,0.7); border: 1px solid var(--rose-border); }
-  .ingredient-icon { font-size: 1.5rem; flex-shrink: 0; }
-  .ingredient-body {}
-  .ingredient-name { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; color: var(--violet); display: block; margin-bottom: 0.3rem; }
-  .ingredient-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; }
+  /* FEATURES */
+  .features { background: var(--ink); padding: 4rem 5rem; }
+  .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+  .feature-item { text-align: center; }
+  .feature-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+  .feature-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--rose-light); margin-bottom: 0.3rem; }
+  .feature-desc { font-size: 0.8rem; font-weight: 300; color: rgba(253,246,242,0.5); line-height: 1.65; }
 
-  /* PROMISE */
-  .promise-section { padding: 5rem 4rem; background: var(--violet); text-align: center; }
-  .promise-inner { max-width: 800px; margin: 0 auto; }
-  .promise-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.5em; color: rgba(255,255,255,0.6); margin-bottom: 1rem; display: block; }
-  .promise-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: white; margin-bottom: 1rem; }
-  .promise-title em { font-style: italic; color: var(--blush-mid); }
-  .promise-list { display: flex; justify-content: center; gap: 3rem; margin-top: 2.5rem; flex-wrap: wrap; }
-  .promise-item { text-align: center; }
-  .promise-item-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.7); display: block; margin-top: 0.5rem; }
-  .promise-item-icon { font-size: 1.8rem; display: block; }
+  /* STORY */
+  .story { display: grid; grid-template-columns: 1fr 1fr; padding: 0; background: var(--blush); }
+  .story-img { background: radial-gradient(ellipse at center, #D9998C, #C47E6E 50%, #B56454); min-height: 480px; display: flex; align-items: center; justify-content: center; font-size: 7rem; position: relative; overflow: hidden; border-right: 1px solid var(--rose-border); }
+  .story-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--blush)); }
+  .story-text { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .story-text .section-kicker { margin-bottom: 1rem; display: block; }
+  .story-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 1.5rem; }
+  .story-text h2 em { font-style: italic; color: var(--violet); }
+  .story-text p { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1rem; max-width: 440px; }
 
-  /* CTA */
-  .cta-section { padding: 7rem 4rem; text-align: center; background: white; position: relative; }
-  .cta-deco { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--rose), var(--violet), var(--rose)); }
-  .cta-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 0.65rem; letter-spacing: 0.5em; color: var(--rose); margin-bottom: 1.5rem; display: block; }
-  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
-  .cta-title em { font-style: italic; color: var(--violet); }
-  .cta-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-  .btn-violet { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.25em; padding: 1.1rem 3rem; background: var(--violet); color: white; text-decoration: none; transition: all 0.3s; border: 2px solid var(--violet); }
-  .btn-violet:hover { background: transparent; color: var(--violet); }
-  .btn-rose { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.25em; padding: 1.1rem 3rem; border: 2px solid var(--rose-border); color: var(--muted); text-decoration: none; transition: all 0.3s; margin-left: 1rem; }
-  .btn-rose:hover { border-color: var(--rose); color: var(--rose); }
+  /* DR. SECTION */
+  .dr-section { background: var(--ink-mid); display: grid; grid-template-columns: 380px 1fr; min-height: 520px; overflow: hidden; border-top: 2px solid var(--rose-border); }
+  .dr-visual { background: radial-gradient(ellipse at 40% 60%, #7B3F8C, #4A2518 60%, #2C1510); display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: hidden; padding-top: 3rem; }
+  .dr-visual::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C47E6E' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23C47E6E' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='10' fill='none' stroke='%23C47E6E' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E"); }
+  .dr-avatar-wrap { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
+  .dr-avatar-initials { width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--rose); background: linear-gradient(135deg, var(--violet) 0%, var(--rose) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; color: #fff; box-shadow: 0 0 0 8px rgba(196,126,110,0.12), 0 0 0 16px rgba(196,126,110,0.05); }
+  .dr-badge-seal { position: absolute; bottom: -10px; right: -10px; width: 76px; height: 76px; background: var(--rose); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 3px solid var(--ink-mid); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+  .seal-icon { font-size: 1rem; }
+  .seal-text { font-size: 0.38rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; line-height: 1.2; padding: 0 4px; }
+  .dr-ribbon { background: var(--rose); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.4rem 2.2rem; margin-top: 1.5rem; position: relative; z-index: 2; clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%); }
+  .dr-content { padding: 4rem 4.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .dr-kicker { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose-light); font-weight: 500; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+  .dr-kicker::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--rose); }
+  .dr-name { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 700; color: var(--cream); line-height: 0.95; margin-bottom: 0.5rem; }
+  .dr-name em { font-style: italic; color: var(--rose-light); }
+  .dr-title-tag { display: inline-flex; align-items: center; background: rgba(196,126,110,0.15); border: 1px solid var(--rose-border); border-radius: 2rem; padding: 0.35rem 1rem; font-size: 0.72rem; font-weight: 500; color: var(--rose-light); letter-spacing: 0.06em; margin-bottom: 2rem; width: fit-content; }
+  .dr-bio { font-size: 0.92rem; font-weight: 300; color: rgba(253,246,242,0.7); line-height: 1.85; margin-bottom: 1rem; max-width: 500px; }
+  .dr-quote { border-left: 3px solid var(--rose); padding-left: 1.25rem; margin: 1.75rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--cream); line-height: 1.5; max-width: 440px; }
+  .dr-stats { display: flex; gap: 2.5rem; margin-top: 0.5rem; }
+  .dr-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--rose-light); display: block; line-height: 1; margin-bottom: 0.2rem; }
+  .dr-stat-label { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(253,246,242,0.4); }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--cream); }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial-card { background: #fff; border: 1px solid var(--blush-border); padding: 1.75rem; position: relative; transition: border-color 0.3s; border-radius: 2px; }
+  .testimonial-card:hover { border-color: rgba(123,63,140,0.3); }
+  .testimonial-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(196,126,110,0.1); position: absolute; top: 0.5rem; left: 1rem; line-height: 1; }
+  .testimonial-text { font-size: 0.88rem; color: var(--ink-light); line-height: 1.75; margin-bottom: 1.25rem; padding-top: 2rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+  .author-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: #fff; background: var(--violet); flex-shrink: 0; }
+  .author-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+  .author-loc { font-size: 0.72rem; color: var(--muted); }
+  .stars { color: var(--rose); font-size: 0.7rem; }
 
   /* FOOTER */
-  footer { border-top: 1px solid var(--rose-border); padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--cream); }
-  .footer-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; }
-  .footer-brand em { font-style: italic; color: var(--violet); }
-  footer p { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
+  footer { background: var(--ink); padding: 4rem 5rem 2rem; color: rgba(253,246,242,0.4); border-top: 2px solid var(--rose-border); }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--rose-light); display: block; margin-bottom: 1rem; }
+  .footer-brand-name em { font-style: italic; }
+  .footer-brand p { font-size: 0.82rem; font-weight: 300; line-height: 1.75; max-width: 280px; }
+  .footer-col h4 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-light); font-weight: 600; margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { font-size: 0.82rem; margin-bottom: 0.6rem; cursor: pointer; transition: color 0.2s; }
+  .footer-col ul li:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(196,126,110,0.15); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 0.75rem; }
 
-  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0.5rem; }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--violet); }
+  /* CART */
+  .cart-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(44,21,16,0.6); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 420px; background: #fff; transform: translateX(100%); transition: transform 0.35s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; border-left: 2px solid var(--rose-border); }
+  .cart-panel.open { transform: translateX(0); }
+  .cart-header { padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--blush-border); display: flex; align-items: center; justify-content: space-between; }
+  .cart-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--rose); }
+  .close-cart { background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--muted); transition: color 0.2s; line-height: 1; }
+  .close-cart:hover { color: var(--rose); }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1rem 1.75rem; }
+  .cart-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 1rem; color: var(--muted); }
+  .cart-empty span { font-size: 3rem; opacity: 0.4; }
+  .cart-empty p { font-size: 0.9rem; font-weight: 300; font-style: italic; }
+  .cart-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--blush-border); }
+  .cart-item-icon { width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: var(--blush); flex-shrink: 0; color: var(--rose); }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; }
+  .cart-item-qty { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+  .qty-btn { width: 22px; height: 22px; background: var(--blush); border: 1px solid var(--blush-border); font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--rose); font-weight: 600; transition: background 0.15s; }
+  .qty-btn:hover { background: var(--blush-mid); }
+  .qty-num { font-size: 0.85rem; font-weight: 500; min-width: 18px; text-align: center; color: var(--ink); }
+  .cart-item-price { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--rose); flex-shrink: 0; }
+  .remove-item { background: none; border: none; cursor: pointer; color: rgba(196,126,110,0.4); font-size: 1rem; transition: color 0.2s; padding: 0.25rem; }
+  .remove-item:hover { color: #C0392B; }
+  .cart-footer { padding: 1.25rem 1.75rem; border-top: 1px solid var(--blush-border); background: var(--blush); }
+  .cart-sub-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+  .cart-sub-row span { font-size: 0.8rem; color: var(--muted); }
+  .cart-total-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--blush-border); }
+  .cart-total-row strong { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+  .total-price { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--rose); }
+  .checkout-btn { width: 100%; background: var(--rose); color: #fff; border: none; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .checkout-btn:hover { background: var(--rose-light); }
+  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--violet); color: #fff; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 0.82rem; font-weight: 500; z-index: 300; transition: transform 0.3s cubic-bezier(.4,0,.2,1); white-space: nowrap; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0.25rem; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--rose); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 500; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--muted); }
+  .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: 0.05em; }
+  .mobile-menu a:hover { color: var(--rose); }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-cta { display: none; }
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none; }
-    .nav-links.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--cream); border-bottom: 1px solid var(--rose-border); padding: 0.5rem 0; gap: 0; }
-    .nav-links.open a { display: block; padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--rose-border); }
-    .products-section { padding: 5rem 1.5rem; }
-    .products-grid { grid-template-columns: 1fr; }
-    .about-section { padding: 5rem 1.5rem; }
-    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .promise-section { padding: 4rem 1.5rem; }
-    .promise-list { gap: 2rem; }
-    .cta-section { padding: 5rem 1.5rem; }
-    .btn-rose { margin-left: 0; margin-top: 1rem; display: block; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .topbar { padding: 0 1.5rem; }
+    header { grid-template-columns: 100px 1fr auto; height: 90px; top: 34px; }
+    .header-logo-img { height: 54px; }
+    .header-site-name { font-size: 1.6rem; }
+    .header-nav-links { display: none; }
+    .header-actions { padding: 0.5rem 1rem; gap: 0.5rem; flex-direction: row; }
+    .cart-btn span:not(.cart-count) { display: none; }
+    .cart-btn { padding: 0.5rem 0.75rem; }
+    .hamburger { display: flex; }
+    .header-spacer { height: 124px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-right { height: 260px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+    section { padding: 2.5rem 1.25rem; }
+    .section-head { flex-direction: column; gap: 0.25rem; }
+    .product-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .features { padding: 2.5rem 1.25rem; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .story { grid-template-columns: 1fr; }
+    .story-img { display: none; }
+    .story-text { padding: 2.5rem 1.25rem; }
+    .dr-section { grid-template-columns: 1fr; }
+    .dr-visual { min-height: 280px; padding: 1.5rem; align-items: center; }
+    .dr-avatar-initials { width: 180px; height: 180px; font-size: 3.5rem; }
+    .dr-content { padding: 2rem 1.25rem; }
+    .dr-stats { gap: 1.25rem; flex-wrap: wrap; }
+    .testimonial-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 3rem 1.25rem 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .cart-panel { width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-brand">
-    <img src="images/few-bel.png" alt="Fèw Bèl" class="nav-logo-img">
-    <span class="nav-brand-name">Fèw <em>Bèl</em></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#about">Our Story</a></li>
-    <li><a href="#order">Order</a></li>
-  </ul>
-  <a href="mailto:contact@fewbel.com" class="nav-cta">Shop Now</a>
-  <button class="nav-hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-tagline" id="topbar-tag"></span>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('ht')">KR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo-slot">
+    <img class="header-logo-img" src="images/few-bel.png" alt="Fèw Bèl">
+  </div>
+  <div class="header-brand">
+    <div class="header-site-name">Fèw <span>Bèl</span></div>
+    <ul class="header-nav-links">
+      <li><a href="#products" data-i18n="nav.products"></a></li>
+      <li><a href="#story" data-i18n="nav.story"></a></li>
+      <li><a href="#dr" data-i18n="nav.dr"></a></li>
+      <li><a href="#testimonials" data-i18n="nav.reviews"></a></li>
+    </ul>
+  </div>
+  <div class="header-actions">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('ht')">KR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="cart-btn" onclick="toggleCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <span data-i18n="nav.cart"></span>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+  <a href="#products" data-i18n="nav.products" onclick="toggleMobileMenu()"></a>
+  <a href="#story" data-i18n="nav.story" onclick="toggleMobileMenu()"></a>
+  <a href="#dr" data-i18n="nav.dr" onclick="toggleMobileMenu()"></a>
+  <a href="#testimonials" data-i18n="nav.reviews" onclick="toggleMobileMenu()"></a>
+</div>
+
+<div class="header-spacer"></div>
+
+<!-- STRIP -->
+<div class="strip"><div class="strip-inner" id="strip-inner"></div></div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Fèw Bèl · Natural Haitian Beauty · Pembroke Pines, FL</div>
-  <h1 class="hero-title">
-    Fè w
-    <em>Bèl</em>
-  </h1>
-  <div class="hero-rule"></div>
-  <p class="hero-sub">Natural, plant-based beauty rooted in Haitian botanical tradition. Every product validated by <strong>Dr. Nadya Remy</strong>, dermatologist — made for Haitian women, by Haitian heritage.</p>
-  <div class="hero-badges">
-    <span class="hero-badge">100% Natural</span>
-    <span class="hero-badge">Dermatologist Validated</span>
-    <span class="hero-badge">Haitian Botanicals</span>
-    <span class="hero-badge">No Preservatives</span>
+<section class="hero" style="padding:0;" id="home">
+  <div class="hero-left">
+    <p class="hero-kicker" data-i18n="hero.kicker"></p>
+    <h1 class="hero-title">
+      <span data-i18n="hero.line1"></span>
+      <em data-i18n="hero.line2"></em>
+      <span data-i18n="hero.line3"></span>
+    </h1>
+    <p class="hero-desc" data-i18n="hero.desc"></p>
+    <button class="hero-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      <span data-i18n="hero.cta"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
   </div>
+  <div class="hero-right" id="product-tiles"></div>
 </section>
 
 <!-- PRODUCTS -->
-<section class="products-section" id="products">
-  <div class="products-inner">
-    <div class="section-header">
-      <span class="section-eyebrow">Natural Collection · Six Products</span>
-      <h2 class="section-title">Made to Make You <em>Beautiful</em></h2>
-      <p class="section-sub">Haitian botanical ingredients, dermatologist-approved formulas, and the beauty rituals of Haitian women — in every bottle.</p>
+<section class="products" id="products" style="background:var(--cream);">
+  <div class="section-head">
+    <h2><span data-i18n="products.h1"></span> <span class="accent" data-i18n="products.h2"></span></h2>
+    <span class="section-kicker" data-i18n="products.kicker"></span>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="features-grid">
+    <div class="feature-item"><span class="feature-icon">🌿</span><p class="feature-title" data-i18n="feat.1.t"></p><p class="feature-desc" data-i18n="feat.1.d"></p></div>
+    <div class="feature-item"><span class="feature-icon">🇭🇹</span><p class="feature-title" data-i18n="feat.2.t"></p><p class="feature-desc" data-i18n="feat.2.d"></p></div>
+    <div class="feature-item"><span class="feature-icon">🌍</span><p class="feature-title" data-i18n="feat.3.t"></p><p class="feature-desc" data-i18n="feat.3.d"></p></div>
+    <div class="feature-item"><span class="feature-icon">🔬</span><p class="feature-title" data-i18n="feat.4.t"></p><p class="feature-desc" data-i18n="feat.4.d"></p></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="story" id="story">
+  <div class="story-img">✿</div>
+  <div class="story-text">
+    <span class="section-kicker" data-i18n="story.kicker"></span>
+    <h2 data-i18n="story.title"></h2>
+    <p data-i18n="story.p1"></p>
+    <p data-i18n="story.p2"></p>
+    <p data-i18n="story.p3"></p>
+  </div>
+</div>
+
+<!-- DR. SECTION -->
+<div class="dr-section" id="dr">
+  <div class="dr-visual">
+    <div class="dr-avatar-wrap">
+      <div class="dr-avatar-initials">NR</div>
+      <div class="dr-badge-seal"><span class="seal-icon">🔬</span><span class="seal-text" data-i18n="dr.seal"></span></div>
+      <div class="dr-ribbon" data-i18n="dr.ribbon"></div>
     </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <span class="product-num">01 · Hair Care</span>
-        <div class="product-name-kr">Lwil Maskreti</div>
-        <div class="product-name-en">Haitian Black Castor Oil</div>
-        <p class="product-desc">The gold standard for hair growth, scalp nourishment, and edge care. Cold-pressed from Haitian castor beans — thicker, richer, more effective than regular castor oil.</p>
-        <div class="product-footer">
-          <span class="product-price">$24.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <span class="product-num">02 · Skincare</span>
-        <div class="product-name-kr">Bè Karite</div>
-        <div class="product-name-en">Raw Shea Butter</div>
-        <p class="product-desc">Unrefined, raw shea butter for deep body moisturizing, eczema relief, and stretch mark prevention. Sourced and prepared using traditional Haitian methods.</p>
-        <div class="product-footer">
-          <span class="product-price">$19.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <span class="product-num">03 · Skincare</span>
-        <div class="product-name-kr">Masque Bentonite</div>
-        <div class="product-name-en">Detox Clay Mask</div>
-        <p class="product-desc">Deep pore cleansing, detox, and oil control with bentonite clay enriched with Haitian tropical herbs. Leaves skin smooth, clear, and radiant.</p>
-        <div class="product-footer">
-          <span class="product-price">$22.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <span class="product-num">04 · Multi-Use</span>
-        <div class="product-name-kr">Lwil Kokoye</div>
-        <div class="product-name-en">Virgin Coconut Oil</div>
-        <p class="product-desc">Cold-pressed virgin coconut oil — makeup remover, hair mask, body oil, and lip treatment in one. A Haitian household staple elevated to skincare standard.</p>
-        <div class="product-footer">
-          <span class="product-price">$18.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <span class="product-num">05 · Body Care</span>
-        <div class="product-name-kr">Savon Natirèl</div>
-        <div class="product-name-en">Natural Bar Soap</div>
-        <p class="product-desc">Handcrafted natural bar soap with Haitian botanical extracts — coconut oil, moringa, and tropical herbs. Gentle, moisturizing, free of synthetic additives.</p>
-        <div class="product-footer">
-          <span class="product-price">$12.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <span class="product-num">06 · Hair Care</span>
-        <div class="product-name-kr">Masque Chevè</div>
-        <div class="product-name-en">Deep Conditioning Hair Mask</div>
-        <p class="product-desc">An intensive deep conditioning treatment with black castor oil, shea butter, and tropical proteins. Restores moisture, reduces breakage, and defines curl pattern.</p>
-        <div class="product-footer">
-          <span class="product-price">$26.99</span>
-          <span class="product-natural">✿ Natural</span>
-        </div>
-      </div>
+  </div>
+  <div class="dr-content">
+    <p class="dr-kicker" data-i18n="dr.kicker"></p>
+    <h2 class="dr-name">Dr. Nadya<br><em>Remy</em></h2>
+    <div class="dr-title-tag" data-i18n="dr.tag"></div>
+    <p class="dr-bio" data-i18n="dr.bio1"></p>
+    <p class="dr-bio" data-i18n="dr.bio2"></p>
+    <blockquote class="dr-quote" data-i18n="dr.quote"></blockquote>
+    <div class="dr-stats">
+      <div><span class="dr-stat-num">15+</span><span class="dr-stat-label" data-i18n="dr.s1"></span></div>
+      <div><span class="dr-stat-num">6</span><span class="dr-stat-label" data-i18n="dr.s2"></span></div>
+      <div><span class="dr-stat-num">100%</span><span class="dr-stat-label" data-i18n="dr.s3"></span></div>
     </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-head">
+    <h2><span data-i18n="rev.h1"></span> <span class="accent" data-i18n="rev.h2"></span></h2>
+    <span class="section-kicker" data-i18n="rev.kicker"></span>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card"><p class="testimonial-text" data-i18n="rev.1.t"></p><div class="testimonial-author"><div class="author-avatar">MS</div><div><p class="author-name">Manoucheka Saint-Fleur</p><p class="author-loc">Miami, FL — <span class="stars">★★★★★</span></p></div></div></div>
+    <div class="testimonial-card"><p class="testimonial-text" data-i18n="rev.2.t"></p><div class="testimonial-author"><div class="author-avatar">RL</div><div><p class="author-name">Roseline Lafleur</p><p class="author-loc">Brooklyn, NY — <span class="stars">★★★★★</span></p></div></div></div>
+    <div class="testimonial-card"><p class="testimonial-text" data-i18n="rev.3.t"></p><div class="testimonial-author"><div class="author-avatar">JD</div><div><p class="author-name">Josiane Desrosiers</p><p class="author-loc">Montréal, QC — <span class="stars">★★★★★</span></p></div></div></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-inner">
-    <div>
-      <span class="about-eyebrow">Dr. Nadya Remy · Dermatologist</span>
-      <h2 class="about-title">Science Meets <em>Tradition</em></h2>
-      <p class="about-body">Fèw Bèl is the only Haitian beauty brand with a practicing dermatologist as its medical director. Dr. Nadya Remy validates every formulation — ensuring that Haitian botanical tradition meets clinical standards for safety and effectiveness.</p>
-      <div class="about-quote">
-        <p>"Haitian women have used these ingredients for generations. My role is to validate what already works — and make sure it works safely for every skin type and tone."</p>
-        <cite>— Dr. Nadya Remy, Dermatologist · Medical Director, Fèw Bèl</cite>
-      </div>
-    </div>
-    <div class="about-ingredients">
-      <div class="ingredient-row">
-        <span class="ingredient-icon">🌿</span>
-        <div class="ingredient-body">
-          <span class="ingredient-name">Haitian Black Castor Oil</span>
-          <p class="ingredient-desc">Roasted and pressed using traditional methods — darker, richer, and more potent than commercially produced castor oil.</p>
-        </div>
-      </div>
-      <div class="ingredient-row">
-        <span class="ingredient-icon">🥥</span>
-        <div class="ingredient-body">
-          <span class="ingredient-name">Cold-Pressed Coconut Oil</span>
-          <p class="ingredient-desc">Virgin, unrefined coconut oil with full lauric acid content preserved. Sourced from Caribbean coconut farms.</p>
-        </div>
-      </div>
-      <div class="ingredient-row">
-        <span class="ingredient-icon">🌺</span>
-        <div class="ingredient-body">
-          <span class="ingredient-name">Tropical Botanical Herbs</span>
-          <p class="ingredient-desc">Moringa, hibiscus, vetiver, and other Haitian herbs known for their skin and hair benefits — used in Haitian homes for centuries.</p>
-        </div>
-      </div>
-      <div class="ingredient-row">
-        <span class="ingredient-icon">✦</span>
-        <div class="ingredient-body">
-          <span class="ingredient-name">Raw Shea Butter</span>
-          <p class="ingredient-desc">Unrefined shea butter prepared in the traditional manner — retaining all vitamins, fatty acids, and healing compounds.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROMISE -->
-<section class="promise-section">
-  <div class="promise-inner">
-    <span class="promise-eyebrow">The Fèw Bèl Promise</span>
-    <h2 class="promise-title">Made <em>for You.</em> Made with Care.</h2>
-    <div class="promise-list">
-      <div class="promise-item">
-        <span class="promise-item-icon">🌿</span>
-        <span class="promise-item-label">100% Natural</span>
-      </div>
-      <div class="promise-item">
-        <span class="promise-item-icon">🔬</span>
-        <span class="promise-item-label">Derm Validated</span>
-      </div>
-      <div class="promise-item">
-        <span class="promise-item-icon">🇭🇹</span>
-        <span class="promise-item-label">Haitian Botanicals</span>
-      </div>
-      <div class="promise-item">
-        <span class="promise-item-icon">✗</span>
-        <span class="promise-item-label">No Preservatives</span>
-      </div>
-      <div class="promise-item">
-        <span class="promise-item-icon">🌍</span>
-        <span class="promise-item-label">Ships Worldwide</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="order">
-  <div class="cta-deco"></div>
-  <span class="cta-eyebrow">Ready to shop?</span>
-  <h2 class="cta-title">Start Your <em>Routine</em></h2>
-  <p class="cta-sub">Contact us to place an order, ask about bundles, or learn more about any product in our natural collection.</p>
-  <a href="mailto:contact@fewbel.com" class="btn-violet">Order via Email</a>
-  <a href="https://lavimiyo.com/store" class="btn-rose">All Three Brands</a>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Fèw <em>Bèl</em></div>
-  <p>© 2025 LavimiyòLLC · Pembroke Pines, FL · contact@fewbel.com</p>
+  <div class="footer-top">
+    <div class="footer-brand"><span class="footer-brand-name">Fèw <em>Bèl</em></span><p data-i18n="foot.tag"></p></div>
+    <div class="footer-col"><h4 data-i18n="foot.c1h"></h4><ul><li data-i18n="foot.c1.1"></li><li data-i18n="foot.c1.2"></li><li data-i18n="foot.c1.3"></li><li data-i18n="foot.c1.4"></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="foot.c2h"></h4><ul><li data-i18n="foot.c2.1"></li><li data-i18n="foot.c2.2"></li><li data-i18n="foot.c2.3"></li><li data-i18n="foot.c2.4"></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="foot.c3h"></h4><ul><li data-i18n="foot.c3.1"></li><li data-i18n="foot.c3.2"></li><li data-i18n="foot.c3.3"></li><li data-i18n="foot.c3.4"></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="foot.copy"></p>
+    <p style="font-size:0.72rem;letter-spacing:0.1em;color:rgba(196,126,110,0.3);">MIAMI · PÒ-O-PRENS · MONTRÉAL</p>
+  </div>
 </footer>
 
+<!-- CART -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cart-panel">
+  <div class="cart-header"><span class="cart-title" id="cart-title-el"></span><button class="close-cart" onclick="toggleCart()">✕</button></div>
+  <div class="cart-items" id="cart-items-list"><div class="cart-empty"><span>✿</span><p id="cart-empty-el"></p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-sub-row"><span id="cart-sub-label"></span><span id="cart-sub-val">$0.00</span></div>
+    <div class="cart-sub-row"><span id="cart-ship-label"></span><span style="color:var(--violet);font-weight:600;" id="cart-free-label"></span></div>
+    <div class="cart-total-row"><strong id="cart-total-label"></strong><span class="total-price" id="cart-total-val">$0.00</span></div>
+    <button class="checkout-btn" id="checkout-btn-el"></button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
 <script>
-  document.querySelector('.nav-hamburger').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('open');
+const T = {
+  ht: {
+    'topbar.tag': 'Bote Natirèl Ayisyen — Valide pa Dr. Nadya Remy, Dèmatològ',
+    'nav.products':'Pwodwi','nav.story':'Istwa Nou','nav.dr':'Dr. Nadya Remy','nav.reviews':'Opinyon','nav.cart':'Panye',
+    'hero.kicker':'✿ Pwodwi Bote Botanik Ayisyen',
+    'hero.line1':'Bote','hero.line2':'ki soti','hero.line3':'nan rasin nou',
+    'hero.desc':'Fèw Bèl — soti nan tradisyon botanik Ayiti, valide pa syans dèmatoloji. Pwodwi natirèl pou tout kalite po.',
+    'hero.cta':'Dekouvri Koleksyon Nou',
+    'products.h1':'Koleksyon','products.h2':'Natirèl Nou','products.kicker':'Pwodwi Botanik',
+    'badge.new':'Nouvo','badge.hot':'🔥 Pi Renmen','badge.bs':'Pi Vann',
+    'p.unit':'','p.add':'+ Ajoute','p.added':'✓ Ajoute',
+    'feat.1.t':'100% Natirèl','feat.1.d':'Chak pwodwi fèt ak ingredyan botanik natirèl — san chimik, san paraben, san sulfat.',
+    'feat.2.t':'Tradisyon Ayisyen','feat.2.d':'Fèw Bèl pale rasin ayisyen nan chak fòmil: lwil maskreti, bè karite, kokoye.',
+    'feat.3.t':'Livrezon Mondyal','feat.3.d':'Ekspedisyon depi Miami pou dyaspora ayisyen an atravè kat kontinan.',
+    'feat.4.t':'Valide Klinikman','feat.4.d':'Formilasyon yo devlope anba sipèvizyon Dr. Nadya Remy, dèmatològ sètifye.',
+    'story.kicker':'Misyon Nou','story.title':'Bote <em>ayisyen</em> se yon eritaj',
+    'story.p1':'Fèw Bèl — "devin bèl" an kreyòl — se marke ki selebre tradisyon bote botanik Ayiti ak modèn syans po.',
+    'story.p2':'Pandan dè syèk, fanm ayisyen te konnen sekrè lwil maskreti, bè karite, ak lwil kokoye. Fèw Bèl pran konesans sa yo epi valide yo avèk ekspertiz medikal modèn.',
+    'story.p3':'Chak pwodwi fèt nan ti kantite pou asire kalite — yon filozofi ki respekte po ou kòm yon ensanm inivèsèl ki merite swen natirèl ki pi bon.',
+    'dr.seal':'Valide\nMedikal','dr.ribbon':'Dèmatològ · Konsiltant Syantifik',
+    'dr.kicker':'Ekspertiz Klinik',
+    'dr.tag':'✿ Dr. Nadya Remy · Dèmatològ Sètifye · Konsiltant Syantifik Fèw Bèl',
+    'dr.bio1':'Dr. Nadya Remy se yon dèmatològ sètifye ak plis pase 15 ane eksperyans nan swen po pou tout nivo melanin. Li espesyalize nan fòmilasyon pwodwi bote natirèl pou po Nwa ak Latino.',
+    'dr.bio2':'Anba sipèvizyon li, chak fòmil Fèw Bèl teste epi valide — pou asire ke tradisyon botanik ayisyen an travay akò ak byoloji modèn po nou yo.',
+    'dr.quote':'« Po ayisyen merite yon swen ki soti nan rasin nou. Fèw Bèl fè egzakteman sa — tradisyon ansèt nou yo, konfime pa syans. »',
+    'dr.s1':'Ane eksperyans','dr.s2':'Pwodwi valide','dr.s3':'Ingredyan natirèl',
+    'rev.h1':'Yo','rev.h2':'Renmen Li','rev.kicker':'Opinyon Verifye',
+    'rev.1.t':'Lwil maskreti a chanje po mwen konplètman. Après 2 semèn sèlman, po mwen te klere epi dousi. M pa ka kwè yon pwodwi natirèl ka fè sa!',
+    'rev.2.t':'Bè karite a se yon bon jan pwodwi. Li pa gras ditou epi li absòbe byen rapid. Pafum natirèl li fè m santi m konm lakay mwen nan Ayiti.',
+    'rev.3.t':'Masque bentonite a ban mwen pi bon rezilta ke nenpòt lòt masque che mwen te achte. Po mwen klè epi pwòp. Mèsi Fèw Bèl!',
+    'foot.tag':'Pwodwi bote natirèl, enspire pa tradisyon botanik Ayiti, valide pa syans dèmatoloji modèn.',
+    'foot.c1h':'Boutik','foot.c1.1':'Tout pwodwi','foot.c1.2':'Swen po','foot.c1.3':'Swen cheve','foot.c1.4':'Pakèj kadò',
+    'foot.c2h':'Enfòmasyon','foot.c2.1':'Istwa nou','foot.c2.2':'Dr. Nadya Remy','foot.c2.3':'Ingredyan nou','foot.c2.4':'Laprès',
+    'foot.c3h':'Sipò','foot.c3.1':'Kontakte nou','foot.c3.2':'Livrezon','foot.c3.3':'Retounen','foot.c3.4':'FAQ',
+    'foot.copy':'© 2025 Fèw Bèl · LavimiyòLLC. Tout dwa rezève. · Fèt ak ❤️ pou fanm ayisyen an.',
+    'cart.title':'Panye Mwen','cart.empty':'Panye ou vid','cart.sub':'Sou-total','cart.ship':'Livrezon','cart.free':'Gratis','cart.total':'Total','cart.checkout':'Pase Kòmand →',
+    'toast':'ajoute nan panye!',
+    'strip':['Pwodwi Natirèl','✿','Valide pa Dèmatològ','✿','Tradisyon Ayisyen','✿','San Chimik','✿','Livrezon Mondyal','✿','Fèw Bèl','✿'],
+  },
+  en: {
+    'topbar.tag': 'Natural Haitian Beauty — Validated by Dr. Nadya Remy, Dermatologist',
+    'nav.products':'Products','nav.story':'Our Story','nav.dr':'Dr. Nadya Remy','nav.reviews':'Reviews','nav.cart':'Cart',
+    'hero.kicker':'✿ Haitian Botanical Beauty',
+    'hero.line1':'Beauty','hero.line2':'rooted in','hero.line3':'our heritage',
+    'hero.desc':'Fèw Bèl — born from Haiti\'s botanical tradition, validated by dermatological science. Natural products for every skin type.',
+    'hero.cta':'Explore Our Collection',
+    'products.h1':'Natural','products.h2':'Collection','products.kicker':'Botanical Selection',
+    'badge.new':'New','badge.hot':'🔥 Popular','badge.bs':'Best Seller',
+    'p.unit':'','p.add':'+ Add','p.added':'✓ Added',
+    'feat.1.t':'100% Natural','feat.1.d':'Every product made with natural botanical ingredients — no chemicals, no parabens, no sulfates.',
+    'feat.2.t':'Haitian Tradition','feat.2.d':'Fèw Bèl speaks Haitian roots in every formula: castor oil, shea butter, coconut.',
+    'feat.3.t':'Global Delivery','feat.3.d':'Shipped from Miami to the Haitian diaspora across four continents.',
+    'feat.4.t':'Clinically Validated','feat.4.d':'Formulations developed under the supervision of Dr. Nadya Remy, certified dermatologist.',
+    'story.kicker':'Our Mission','story.title':'Haitian beauty <em>is</em> a heritage',
+    'story.p1':'Fèw Bèl — "become beautiful" in Haitian Creole — is a brand that celebrates Haiti\'s botanical beauty tradition with modern skin science.',
+    'story.p2':'For centuries, Haitian women have known the secrets of castor oil, shea butter, and coconut oil. Fèw Bèl takes that knowledge and validates it with modern medical expertise.',
+    'story.p3':'Each product is made in small batches to ensure quality — a philosophy that respects your skin as a universal canvas deserving the finest natural care.',
+    'dr.seal':'Medical\nValidated','dr.ribbon':'Dermatologist · Scientific Consultant',
+    'dr.kicker':'Clinical Expertise',
+    'dr.tag':'✿ Dr. Nadya Remy · Certified Dermatologist · Fèw Bèl Scientific Consultant',
+    'dr.bio1':'Dr. Nadya Remy is a board-certified dermatologist with over 15 years of experience in skincare for all melanin levels. She specializes in natural beauty formulation for Black and Latino skin.',
+    'dr.bio2':'Under her supervision, every Fèw Bèl formula is tested and validated — ensuring that Haiti\'s botanical tradition works in harmony with the modern biology of our skin.',
+    'dr.quote':'"Haitian skin deserves care rooted in our heritage. Fèw Bèl does exactly that — our ancestors\' tradition, confirmed by science."',
+    'dr.s1':'Years of experience','dr.s2':'Validated products','dr.s3':'Natural ingredients',
+    'rev.h1':'They','rev.h2':'Love It','rev.kicker':'Verified Reviews',
+    'rev.1.t':'The castor oil completely transformed my skin. After just 2 weeks, my complexion was brighter and smoother. I can\'t believe a natural product can do that!',
+    'rev.2.t':'The shea butter is exceptional. It\'s not greasy at all and absorbs beautifully. Its natural scent makes me feel like I\'m back home in Haiti.',
+    'rev.3.t':'The bentonite mask gave me better results than any expensive mask I\'ve bought. My skin is clear and glowing. Thank you Fèw Bèl!',
+    'foot.tag':'Natural beauty products, inspired by Haiti\'s botanical tradition, validated by modern dermatological science.',
+    'foot.c1h':'Shop','foot.c1.1':'All products','foot.c1.2':'Skincare','foot.c1.3':'Haircare','foot.c1.4':'Gift sets',
+    'foot.c2h':'Information','foot.c2.1':'Our story','foot.c2.2':'Dr. Nadya Remy','foot.c2.3':'Our ingredients','foot.c2.4':'Press',
+    'foot.c3h':'Support','foot.c3.1':'Contact us','foot.c3.2':'Shipping','foot.c3.3':'Returns','foot.c3.4':'FAQ',
+    'foot.copy':'© 2025 Fèw Bèl · LavimiyòLLC. All rights reserved. · Made with ❤️ for Haitian women everywhere.',
+    'cart.title':'My Cart','cart.empty':'Your cart is empty','cart.sub':'Subtotal','cart.ship':'Shipping','cart.free':'Free','cart.total':'Total','cart.checkout':'Checkout →',
+    'toast':'added to cart!',
+    'strip':['Natural Products','✿','Validated by Dermatologist','✿','Haitian Tradition','✿','No Chemicals','✿','Global Delivery','✿','Fèw Bèl','✿'],
+  }
+};
+
+const PRODUCTS = [
+  { id:1, name:'Lwil Maskreti', sub_ht:'Lwil Botanik Pou Po ak Cheve', sub_en:'Botanical Oil for Skin & Hair', price:24.99, badge:'bs', symbol:'❋', desc_ht:'Lwil maskreti pou po: nouri cheve, pwoteje po ak eklesite tach. Rich an asid grasi esansyèl pou po ou.', desc_en:'Pure Haitian castor oil: nourishes hair, protects skin, and fades dark spots. Rich in essential fatty acids for your skin.' },
+  { id:2, name:'Bè Karite', sub_ht:'Bè Nouri Kò ak Figi', sub_en:'Body & Face Nourishing Butter', price:19.99, badge:'bs', symbol:'✿', desc_ht:'Bè karite natirèl ki nouri po ak pwofondè. Ideyal pou kote sèch, bra, jann pye, ak pou gwosès.', desc_en:'Natural shea butter that deeply nourishes skin. Ideal for dry areas, elbows, heels, and during pregnancy.' },
+  { id:3, name:'Masque Bentonite', sub_ht:'Masque Ajil Pou Figi', sub_en:'Clay Detox Face Mask', price:22.99, badge:'new', symbol:'◆', desc_ht:'Masque ajil bentonit ki netwaye po an pwofondè, retire impirete ak kontwole lwil ekstra. Pou tout kalite po.', desc_en:'Bentonite clay mask that deeply cleanses skin, removes impurities, and controls excess oil. For all skin types.' },
+  { id:4, name:'Lwil Kokoye', sub_ht:'Lwil Kokoye Natirèl', sub_en:'Pure Coconut Oil', price:18.99, badge:'', symbol:'◉', desc_ht:'Lwil kokoye vyèj ekstra ki ideyalman pou po, cheve ak kòm démaquillant natirèl. Yon sèl pwodwi, mil itilizasyon.', desc_en:'Extra virgin coconut oil ideal for skin, hair, and as a natural makeup remover. One product, a thousand uses.' },
+  { id:5, name:'Savon Natirèl', sub_ht:'Savon Botanik Ayisyen', sub_en:'Haitian Botanical Soap', price:12.99, badge:'', symbol:'✦', desc_ht:'Savon fèt a la men ak lwil botanik ayisyen. San sulfat, san paraben. Dousi po tout jou san sèchès.', desc_en:'Handcrafted soap with Haitian botanical oils. Sulfate-free, paraben-free. Softens skin daily without dryness.' },
+  { id:6, name:'Masque Chevè', sub_ht:'Swen Pwofon Pou Cheve', sub_en:'Deep Hair Treatment Mask', price:26.99, badge:'new', symbol:'≋', desc_ht:'Masque swen pwofon pou cheve: rannovi cheve kraze, nouri tèt, bay byè ak briyans natirèl. Ideyal pou cheve kreyòl.', desc_en:'Deep conditioning hair mask: revives damaged hair, nourishes the scalp, restores moisture and natural shine. Ideal for textured hair.' },
+];
+
+let cart = [], lang = 'ht';
+
+function t(k) { return (T[lang]||T.ht)[k] || k; }
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === (l==='ht'?'KR':'EN')));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n, v = t(k);
+    if (k === 'story.title') el.innerHTML = v; else el.textContent = v;
   });
+  renderProducts(); renderStrip(); updateCartUI();
+}
+
+function renderStrip() {
+  const items = t('strip'); const s = items.map(i=>`<span>${i}</span>`).join('');
+  document.getElementById('strip-inner').innerHTML = s+s;
+}
+
+function renderProducts() {
+  const g = document.getElementById('product-grid');
+  g.innerHTML = PRODUCTS.map(p => {
+    const badgeMap = {'new':'badge-new','hot':'badge-hot','bs':'badge-bs'};
+    const badgeLabel = p.badge ? `<div class="product-badge ${badgeMap[p.badge]||''}">${t('badge.'+p.badge)}</div>` : '';
+    return `<div class="product-card">
+      <div class="product-img">
+        <span class="product-img-symbol">${p.symbol}</span>
+        ${badgeLabel}
+      </div>
+      <div class="product-body">
+        <div class="product-brand-row">
+          <img src="images/few-bel.png" style="height:22px;object-fit:contain;opacity:0.7;">
+          <span class="product-brand-tag">Fèw Bèl</span>
+        </div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-sub">${lang==='ht'?p.sub_ht:p.sub_en}</div>
+        <div class="product-desc">${lang==='ht'?p.desc_ht:p.desc_en}</div>
+        <div class="product-footer">
+          <div class="product-price">$${p.price.toFixed(2)} <small>${t('p.unit')}</small></div>
+          <button class="add-btn" id="btn-${p.id}" onclick="addToCart(${p.id})">${t('p.add')}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const tiles = document.getElementById('product-tiles');
+  if (tiles) tiles.innerHTML = PRODUCTS.map(p => `
+    <div class="product-tile" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      <span class="tile-symbol">${p.symbol}</span>
+      <span class="tile-name">${p.name}</span>
+      <span class="tile-sub">${lang==='ht'?p.sub_ht:p.sub_en}</span>
+    </div>`).join('');
+}
+
+function addToCart(id) {
+  const p = PRODUCTS.find(x=>x.id===id);
+  const ex = cart.find(x=>x.id===id);
+  if (ex) ex.qty++; else cart.push({...p, qty:1});
+  updateCartUI();
+  const btn = document.getElementById('btn-'+id);
+  btn.textContent = t('p.added'); btn.classList.add('added');
+  setTimeout(()=>{ btn.textContent=t('p.add'); btn.classList.remove('added'); }, 1500);
+  showToast(p.name + ' ' + t('toast'));
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast'); el.textContent = msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 2500);
+}
+
+function toggleCart() {
+  document.getElementById('cart-overlay').classList.toggle('open');
+  document.getElementById('cart-panel').classList.toggle('open');
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cart-count').textContent = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cart-title-el').textContent = t('cart.title');
+  document.getElementById('cart-empty-el').textContent = t('cart.empty');
+  document.getElementById('cart-sub-label').textContent = t('cart.sub');
+  document.getElementById('cart-ship-label').textContent = t('cart.ship');
+  document.getElementById('cart-free-label').textContent = t('cart.free');
+  document.getElementById('cart-total-label').textContent = t('cart.total');
+  document.getElementById('cart-sub-val').textContent = '$'+total.toFixed(2);
+  document.getElementById('cart-total-val').textContent = '$'+total.toFixed(2);
+  document.getElementById('checkout-btn-el').textContent = t('cart.checkout');
+  const list = document.getElementById('cart-items-list');
+  const footer = document.getElementById('cart-footer');
+  if (cart.length === 0) {
+    list.innerHTML = `<div class="cart-empty"><span>✿</span><p>${t('cart.empty')}</p></div>`;
+    footer.style.display = 'none';
+  } else {
+    footer.style.display = 'block';
+    list.innerHTML = cart.map(i=>`
+      <div class="cart-item">
+        <div class="cart-item-icon">${i.symbol}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
+            <span class="qty-num">${i.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
+          </div>
+        </div>
+        <span class="cart-item-price">$${(i.price*i.qty).toFixed(2)}</span>
+        <button class="remove-item" onclick="removeFromCart(${i.id})">✕</button>
+      </div>`).join('');
+  }
+}
+
+function changeQty(id, d) {
+  const i = cart.find(x=>x.id===id);
+  if (!i) return;
+  i.qty += d;
+  if (i.qty <= 0) cart = cart.filter(x=>x.id!==id);
+  updateCartUI();
+}
+
+function removeFromCart(id) { cart = cart.filter(x=>x.id!==id); updateCartUI(); }
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', () => { setLang('ht'); });
 </script>
 </body>
 </html>
