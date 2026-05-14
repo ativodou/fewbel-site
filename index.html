@@ -89,7 +89,6 @@
   .product-body { padding: 1.25rem; }
   .product-brand-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
   .product-brand-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--violet); opacity: 0.7; font-weight: 600; }
-  .product-line { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: 0.25rem; font-style: italic; }
   .product-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.1; }
   .product-sub { font-size: 0.78rem; font-weight: 300; color: var(--muted); margin-bottom: 0.6rem; font-style: italic; }
   .product-desc { font-size: 0.8rem; color: var(--ink-light); line-height: 1.65; margin-bottom: 0.75rem; }
@@ -502,7 +501,7 @@ const T = {
 };
 
 const PRODUCTS = [
-  { id:1, name:'Lwil Maskreti', line:'Glow', img:'lwil maskreti 2.png', sub_ht:'Lwil Botanik Pou Po ak Cheve', sub_en:'Botanical Oil for Skin & Hair', price:24.99, badge:'bs', symbol:'❋', desc_ht:'Lwil maskreti pou po: nouri cheve, pwoteje po ak eklesite tach. Rich an asid grasi esansyèl pou po ou.', desc_en:'Pure Caribbean castor oil: nourishes hair, protects skin, and fades dark spots. Rich in essential fatty acids for your skin.' },
+  { id:1, name:'Lwil Maskreti', img:'lwil maskreti 2.png', sub_ht:'Lwil Botanik Pou Po ak Cheve', sub_en:'Botanical Oil for Skin & Hair', price:24.99, badge:'bs', symbol:'❋', desc_ht:'Lwil maskreti pou po: nouri cheve, pwoteje po ak eklesite tach. Rich an asid grasi esansyèl pou po ou.', desc_en:'Pure Caribbean castor oil: nourishes hair, protects skin, and fades dark spots. Rich in essential fatty acids for your skin.' },
   { id:2, name:'Bè Karite', img:'be karite.png', sub_ht:'Bè Nouri Kò ak Figi', sub_en:'Body & Face Nourishing Butter', price:19.99, badge:'bs', symbol:'✿', desc_ht:'Bè karite natirèl ki nouri po ak pwofondè. Ideyal pou kote sèch, bra, jann pye, ak pou gwosès.', desc_en:'Natural shea butter that deeply nourishes skin. Ideal for dry areas, elbows, heels, and during pregnancy.' },
   { id:3, name:'Pat Ajil', img:'pat ail.png', sub_ht:'Masque Ajil Pou Figi', sub_en:'Clay Detox Face Mask', price:22.99, badge:'new', symbol:'◆', desc_ht:'Masque ajil bentonit ki netwaye po an pwofondè, retire impirete ak kontwole lwil ekstra. Pou tout kalite po.', desc_en:'Bentonite clay mask that deeply cleanses skin, removes impurities, and controls excess oil. For all skin types.' },
   { id:4, name:'Lwil Kokoye', img:'lwil kokoye.png', sub_ht:'Lwil Kokoye Natirèl', sub_en:'Pure Coconut Oil', price:18.99, badge:'', symbol:'◉', desc_ht:'Lwil kokoye vyèj ekstra ki ideyalman pou po, cheve ak kòm démaquillant natirèl. Yon sèl pwodwi, mil itilizasyon.', desc_en:'Extra virgin coconut oil ideal for skin, hair, and as a natural makeup remover. One product, a thousand uses.' },
@@ -547,7 +546,6 @@ function renderProducts() {
           <img src="images/few-bel-v2.png" style="height:22px;object-fit:contain;opacity:0.7;">
           <span class="product-brand-tag">Fèw Bèl</span>
         </div>
-        ${p.line?`<div class="product-line">${p.line}</div>`:''}
         <div class="product-name">${p.name}</div>
         <div class="product-sub">${lang==='ht'?p.sub_ht:p.sub_en}</div>
         <div class="product-desc">${lang==='ht'?p.desc_ht:p.desc_en}</div>
